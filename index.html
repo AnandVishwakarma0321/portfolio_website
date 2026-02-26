@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/portfolio_website/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Face Recognition Based Attendance System.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Hajeri-Contactless Attendance System">
+  <link rel="apple-touch-icon" href="app_icon.png">
+
+  <!-- Open Graph meta tags for social media and search engines -->
+  <meta property="og:title" content="Hajeri-Online Attendance">
+  <meta property="og:description" content="Hajeri-Contactless Attendance System">
+  <meta property="og:image" content="path/to/your/image.png">
+  <meta property="og:url" content="https://www.hajeri.in">
+
+  <!-- Twitter Card meta tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hajeri-Online Attendance">
+  <meta name="twitter:description" content="Hajeri-Contactless Attendance System">
+  <meta name="twitter:image" content="path/to/your/image.png">
+  <meta name="twitter:url" content="https://www.hajeri.in">
+
+  <!-- <link rel="apple-touch-icon" href="icons/Icon-192.png"> -->
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="app_icon.png"/>
+
+  <title>Hajeri-Contactless Attendance System</title>
+  <link rel="manifest" href="manifest.json">
+
+  <script>
+    // The value below is injected by flutter build, do not touch.
+    const serviceWorkerVersion = "2040572002";
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Hajeri-Contactless Attendance System",
+      "url": "https://www.hajeri.in",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.hajeri.in",
+        "query-input": "required name=search_term_string"
+      },
+      "image": "https://www.hajeri.in/path/to/your/image.png",
+      "description": "Hajeri-Contactless Attendance System"
+    }
+  </script>
+
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js" defer></script>
+  <script type="application/javascript" src="/assets/packages/flutter_inappwebview_web/assets/web/web_support.js" defer></script>
+  <script src="https://unpkg.com/canvaskit-wasm@0.33.0/bin/canvaskit.js"></script>
+  <link rel="preload" href="https://unpkg.com/canvaskit-wasm@0.33.0/bin/canvaskit.wasm" as="fetch" crossOrigin="anonymous">
+  <!-- Styling for loading indicator -->
+  <style>
+    body {
+      background: #000;
+    }
+
+    #load {
+      position: absolute;
+      width: 600px;
+      height: 36px;
+      left: 50%;
+      top: 40%;
+      margin-left: -300px;
+      overflow: visible;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      cursor: default;
+    }
+
+    #load div {
+      position: absolute;
+      width: 20px;
+      height: 36px;
+      opacity: 0;
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 48px; /* Increase the font size */
+      animation: move 2s linear infinite;
+      -o-animation: move 2s linear infinite;
+      -moz-animation: move 2s linear infinite;
+      -webkit-animation: move 2s linear infinite;
+      transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -webkit-transform: rotate(180deg);
+      color: #35c4f0;
+    }
+
+    #load div:nth-child(2) {
+      animation-delay: 0.2s;
+      -o-animation-delay: 0.2s;
+      -moz-animation-delay: 0.2s;
+      -webkit-animation-delay: 0.2s;
+    }
+    #load div:nth-child(3) {
+      animation-delay: 0.4s;
+      -o-animation-delay: 0.4s;
+      -webkit-animation-delay: 0.4s;
+      -webkit-animation-delay: 0.4s;
+    }
+    #load div:nth-child(4) {
+      animation-delay: 0.6s;
+      -o-animation-delay: 0.6s;
+      -moz-animation-delay: 0.6s;
+      -webkit-animation-delay: 0.6s;
+    }
+    #load div:nth-child(5) {
+      animation-delay: 0.8s;
+      -o-animation-delay: 0.8s;
+      -moz-animation-delay: 0.8s;
+      -webkit-animation-delay: 0.8s;
+    }
+    #load div:nth-child(6) {
+      animation-delay: 1s;
+      -o-animation-delay: 1s;
+      -moz-animation-delay: 1s;
+      -webkit-animation-delay: 1s;
+    }
+    #load div:nth-child(7) {
+      animation-delay: 1.2s;
+      -o-animation-delay: 1.2s;
+      -moz-animation-delay: 1.2s;
+      -webkit-animation-delay: 1.2s;
+    }
+
+    @keyframes move {
+      0% {
+        left: 0;
+        opacity: 0;
+      }
+      35% {
+        left: 41%;
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        opacity: 1;
+      }
+      65% {
+        left: 59%;
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        left: 100%;
+        -moz-transform: rotate(-180deg);
+        -webkit-transform: rotate(-180deg);
+        -o-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+        opacity: 0;
+      }
+    }
+
+    @-moz-keyframes move {
+      0% {
+        left: 0;
+        opacity: 0;
+      }
+      35% {
+        left: 41%;
+        -moz-transform: rotate(0deg);
+        transform: rotate(0deg);
+        opacity: 1;
+      }
+      65% {
+        left: 59%;
+        -moz-transform: rotate(0deg);
+        transform: rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        left: 100%;
+        -moz-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+        opacity: 0;
+      }
+    }
+
+    @-webkit-keyframes move {
+      0% {
+        left: 0;
+        opacity: 0;
+      }
+      35% {
+        left: 41%;
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        opacity: 1;
+      }
+      65% {
+        left: 59%;
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        left: 100%;
+        -webkit-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+        opacity: 0;
+      }
+    }
+
+    @-o-keyframes move {
+      0% {
+        left: 0;
+        opacity: 0;
+      }
+      35% {
+        left: 41%;
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        opacity: 1;
+      }
+      65% {
+        left: 59%;
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        left: 100%;
+        -o-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading indicator -->
+  <div id="load">
+    <div>I</div>
+    <div>R</div>
+    <div>E</div>
+    <div>J</div>
+    <div>A</div>
+    <div>H</div>
+    <!-- <div>G</div>
+    <div>N</div>
+    <div>I</div>
+    <div>D</div>
+    <div>A</div>
+    <div>O</div>
+    <div>L</div> -->
+  </div>
+  <script>
+    window.addEventListener('load', function(ev) {
+      // Download main.dart.js
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: function(engineInitializer) {
+
+          let config = {
+            renderer: "html",
+          }
+          engineInitializer.initializeEngine(config).then(function(appRunner) {
+            appRunner.runApp();
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
